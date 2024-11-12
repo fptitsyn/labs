@@ -24,15 +24,14 @@ void ConnectionDialog::on_pushButton_clicked()
     //Указывается логин и пароль соответственно
      db.setUserName(ui->loginLineEdit->text());
      db.setPassword(ui->passwordLineEdit->text());
-    msg = new QMessageBox(); //создаём объект для вывода сообщения
+     msg = new QMessageBox(); //создаём объект для вывода сообщения
      if (db.open()) //попытка подключения к БД
      {
-     msg->setText("Соединение установлено"); //
+        msg->setText("Соединение установлено"); //
      }
      else
      {
-     msg->setText("Соединение НЕ установлено");
-
+        msg->setText("Соединение НЕ установлено");
      }
     msg->show();
 }

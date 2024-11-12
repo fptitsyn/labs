@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>393</width>
-    <height>333</height>
+    <width>492</width>
+    <height>423</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Подключение к базе данных</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>80</x>
      <y>40</y>
-     <width>241</width>
-     <height>241</height>
+     <width>301</width>
+     <height>311</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -36,7 +36,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="addressLineEdit"/>
+       <widget class="QLineEdit" name="addressLineEdit">
+        <property name="text">
+         <string>.\SQLEXPRESS</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -53,7 +57,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="nameLineEdit"/>
+       <widget class="QLineEdit" name="nameLineEdit">
+        <property name="text">
+         <string>Ptitsyn</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -70,7 +78,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="loginLineEdit"/>
+       <widget class="QLineEdit" name="loginLineEdit">
+        <property name="text">
+         <string>QAdmin</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -87,7 +99,14 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="passwordLineEdit"/>
+       <widget class="QLineEdit" name="passwordLineEdit">
+        <property name="text">
+         <string>admin123</string>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>

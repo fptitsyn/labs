@@ -21,7 +21,8 @@ public:
 private slots:
     void on_action_triggered();
 
-    void on_pushButton_clicked();
+    void on_updatePushButton_clicked();
+
 
 private:
     Ui::MainWindow *ui;

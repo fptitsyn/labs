@@ -21,10 +21,9 @@ void MainWindow::on_action_triggered()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_updatePushButton_clicked()
 {
     qmodel = new QSqlTableModel();
     qmodel->setQuery("SELECT * FROM Albums");
     ui->tableView->setModel(qmodel);
 }
-
