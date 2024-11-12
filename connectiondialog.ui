@@ -16,55 +16,80 @@
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>10</y>
+     <x>80</x>
+     <y>40</y>
      <width>241</width>
-     <height>311</height>
+     <height>241</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="spacing">
-     <number>6</number>
-    </property>
+   <layout class="QVBoxLayout" name="verticalLayout_5">
     <item>
-     <widget class="QLabel" name="addressLabel">
-      <property name="text">
-       <string>Адрес сервера</string>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>0</number>
       </property>
-     </widget>
+      <item>
+       <widget class="QLabel" name="addressLabel">
+        <property name="text">
+         <string>Адрес сервера</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="addressLineEdit"/>
+      </item>
+     </layout>
     </item>
     <item>
-     <widget class="QLineEdit" name="addressLineEdit"/>
-    </item>
-    <item>
-     <widget class="QLabel" name="nameLabel">
-      <property name="text">
-       <string>Имя базы данных</string>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>0</number>
       </property>
-     </widget>
+      <item>
+       <widget class="QLabel" name="nameLabel">
+        <property name="text">
+         <string>Имя базы данных</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="nameLineEdit"/>
+      </item>
+     </layout>
     </item>
     <item>
-     <widget class="QLineEdit" name="nameLineEdit"/>
-    </item>
-    <item>
-     <widget class="QLabel" name="loginLabel">
-      <property name="text">
-       <string>Логин</string>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <property name="spacing">
+       <number>0</number>
       </property>
-     </widget>
+      <item>
+       <widget class="QLabel" name="loginLabel">
+        <property name="text">
+         <string>Логин</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="loginLineEdit"/>
+      </item>
+     </layout>
     </item>
     <item>
-     <widget class="QLineEdit" name="loginLineEdit"/>
-    </item>
-    <item>
-     <widget class="QLabel" name="passwordLabel">
-      <property name="text">
-       <string>Пароль</string>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <property name="spacing">
+       <number>0</number>
       </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="passwordLineEdit"/>
+      <item>
+       <widget class="QLabel" name="passwordLabel">
+        <property name="text">
+         <string>Пароль</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="passwordLineEdit"/>
+      </item>
+     </layout>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton">

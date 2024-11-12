@@ -20,3 +20,11 @@ void MainWindow::on_action_triggered()
     dlg->show();
 }
 
+
+void MainWindow::on_pushButton_clicked()
+{
+    qmodel = new QSqlTableModel();
+    qmodel->setQuery("SELECT * FROM Albums");
+    ui->tableView->setModel(qmodel);
+}
+
