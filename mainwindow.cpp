@@ -16,8 +16,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_action_triggered()
 {
-    dlg = new ConnectionDialog();
-    dlg->show();
+    connectionDlg = new ConnectionDialog();
+    connectionDlg->show();
 }
 
 
@@ -27,3 +27,11 @@ void MainWindow::on_updatePushButton_clicked()
     qmodel->setQuery("SELECT * FROM Albums");
     ui->tableView->setModel(qmodel);
 }
+
+
+void MainWindow::on_addAction_triggered()
+{
+    addDlg = new AddDataDialog();
+    addDlg->show();
+}
+

@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "connectiondialog.h"
 #include "ui_connectiondialog.h"
+#include "adddatadialog.h"
+#include "ui_adddatadialog.h"
 #include <QSqlQueryModel>
 
 QT_BEGIN_NAMESPACE
@@ -23,10 +25,12 @@ private slots:
 
     void on_updatePushButton_clicked();
 
+    void on_addAction_triggered();
 
 private:
     Ui::MainWindow *ui;
-    ConnectionDialog *dlg;
+    ConnectionDialog *connectionDlg;
+    AddDataDialog *addDlg;
     QSqlQueryModel *qmodel;
 };
 #endif // MAINWINDOW_H

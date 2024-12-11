@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddDataDialog</class>
+ <widget class="QWidget" name="AddDataDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Добавить альбом</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>10</y>
+     <width>211</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="inputForEditing">
+    <item>
+     <widget class="QLabel" name="nameLabel">
+      <property name="text">
+       <string>Название альбома</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="nameInput">
+      <property name="minimumSize">
+       <size>
+        <width>180</width>
+        <height>40</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="creatorLabel">
+      <property name="text">
+       <string>Исполнитель</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="creatorInput">
+      <property name="minimumSize">
+       <size>
+        <width>180</width>
+        <height>40</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="genreLabel">
+      <property name="text">
+       <string>Жанр</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="genreInput">
+      <property name="minimumSize">
+       <size>
+        <width>180</width>
+        <height>40</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="addPushButton">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>241</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Добавить</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -17,9 +17,9 @@
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>260</x>
       <y>30</y>
-      <width>781</width>
+      <width>641</width>
       <height>581</height>
      </rect>
     </property>
@@ -27,7 +27,7 @@
    <widget class="QPushButton" name="updatePushButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>70</x>
       <y>30</y>
       <width>91</width>
       <height>31</height>
@@ -36,6 +36,124 @@
     <property name="text">
      <string>Обновить</string>
     </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>211</width>
+      <height>194</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="inputForEditing">
+     <item>
+      <widget class="QLabel" name="nameLabel">
+       <property name="text">
+        <string>Название альбома</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="nameInput">
+       <property name="minimumSize">
+        <size>
+         <width>180</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="creatorLabel">
+       <property name="text">
+        <string>Исполнитель</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="creatorInput">
+       <property name="minimumSize">
+        <size>
+         <width>180</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="genreLabel">
+       <property name="text">
+        <string>Жанр</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="genreInput">
+       <property name="minimumSize">
+        <size>
+         <width>180</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>280</y>
+      <width>210</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="crudButtons">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="createPushButton">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Добавить</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="editPushButton">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Редактировать</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="deletePushButton">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Удалить</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -53,12 +171,24 @@
     </property>
     <addaction name="action"/>
    </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Данные</string>
+    </property>
+    <addaction name="addAction"/>
+   </widget>
    <addaction name="menu"/>
+   <addaction name="menu_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="action">
    <property name="text">
     <string>Подключиться к БД...</string>
+   </property>
+  </action>
+  <action name="addAction">
+   <property name="text">
+    <string>Добавить...</string>
    </property>
   </action>
  </widget>
