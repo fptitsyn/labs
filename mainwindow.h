@@ -27,6 +27,10 @@ private slots:
 
     void on_addAction_triggered();
 
+    void on_tableView_clicked(const QModelIndex &index);
+
+    void on_deletePushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     ConnectionDialog *connectionDlg;

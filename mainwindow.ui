@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>917</width>
-    <height>671</height>
+    <width>1024</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,14 +23,17 @@
       <height>581</height>
      </rect>
     </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
    </widget>
    <widget class="QPushButton" name="updatePushButton">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>30</y>
-      <width>91</width>
-      <height>31</height>
+      <x>10</x>
+      <y>20</y>
+      <width>211</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -41,12 +44,50 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>80</y>
+      <y>360</y>
       <width>211</width>
-      <height>194</height>
+      <height>88</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="inputForEditing">
+    <layout class="QVBoxLayout" name="controlButtons">
+     <item>
+      <widget class="QPushButton" name="editPushButton">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Редактировать</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="deletePushButton">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Удалить</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>81</y>
+      <width>211</width>
+      <height>260</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="inputInfo">
      <item>
       <widget class="QLabel" name="nameLabel">
        <property name="text">
@@ -98,58 +139,23 @@
        </property>
       </widget>
      </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>280</y>
-      <width>210</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="crudButtons">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QPushButton" name="createPushButton">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Добавить</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="editPushButton">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Редактировать</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QLabel" name="idLabel">
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="deletePushButton">
+      <widget class="QLineEdit" name="idInput">
        <property name="minimumSize">
         <size>
-         <width>100</width>
-         <height>30</height>
+         <width>180</width>
+         <height>40</height>
         </size>
        </property>
-       <property name="text">
-        <string>Удалить</string>
+       <property name="readOnly">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -161,7 +167,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>917</width>
+     <width>1024</width>
      <height>21</height>
     </rect>
    </property>
