@@ -73,3 +73,20 @@ void MainWindow::on_deletePushButton_clicked()
     }
 }
 
+
+void MainWindow::on_editPushButton_clicked()
+{
+    QSqlQuery *query = new QSqlQuery();
+    query->prepare("UPDATE albums SET name = :name, "
+    "creator = :creator, genre = :genre WHERE ID = :ID");
+    query->bindValue(":ID",ui->idInput->text());
+    query->bindValue(":name",ui->nameInput->text());
+    query->bindValue(":creator",ui->creatorInput->text());
+    query->bindValue(":genre",ui->genreInput->text());
+    query->exec();
+    ui->idInput->setText("");
+    ui->nameInput->setText("");
+    ui->creatorInput->setText("");
+    ui->genreInput->setText("");
+    MainWindow::on_updatePushButton_clicked();
+}

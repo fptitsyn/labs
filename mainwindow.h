@@ -31,6 +31,8 @@ private slots:
 
     void on_deletePushButton_clicked();
 
+    void on_editPushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     ConnectionDialog *connectionDlg;
