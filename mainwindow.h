@@ -9,6 +9,12 @@
 #include <QSqlQueryModel>
 #include "modifydialog.h"
 #include "ui_modifydialog.h"
+#include "printdialog.h"
+#include "ui_printdialog.h"
+
+#include <QPrinter>
+#include <QTextDocument>
+#include <QFileDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -41,6 +47,10 @@ private slots:
 
     void ModRecAction();
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
 signals:
     void sendId(int);
 
@@ -50,6 +60,7 @@ private:
     AddDataDialog *addDlg;
     QSqlQueryModel *qmodel;
     ModifyDialog *modifyDialog;
+    PrintDialog *printDialog;
 
     bool isDataDisplayed;
     int GlobId;

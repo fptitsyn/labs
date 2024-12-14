@@ -20,7 +20,7 @@
       <x>260</x>
       <y>30</y>
       <width>641</width>
-      <height>581</height>
+      <height>551</height>
      </rect>
     </property>
     <property name="contextMenuPolicy">
@@ -47,9 +47,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>360</y>
+      <y>400</y>
       <width>211</width>
-      <height>88</height>
+      <height>91</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="controlButtons">
@@ -87,7 +87,7 @@
       <x>11</x>
       <y>81</y>
       <width>211</width>
-      <height>260</height>
+      <height>301</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="inputInfo">
@@ -164,6 +164,44 @@
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>590</y>
+      <width>641</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="exportButtons">
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Экспорт в Word</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Экспорт в PDF</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -171,7 +209,7 @@
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>21</height>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">

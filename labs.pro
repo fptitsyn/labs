@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT       += core gui sql axcontainer printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,19 +13,22 @@ SOURCES += \
     connectiondialog.cpp \
     main.cpp \
     mainwindow.cpp \
-    modifydialog.cpp
+    modifydialog.cpp \
+    printdialog.cpp
 
 HEADERS += \
     adddatadialog.h \
     connectiondialog.h \
     mainwindow.h \
-    modifydialog.h
+    modifydialog.h \
+    printdialog.h
 
 FORMS += \
     adddatadialog.ui \
     connectiondialog.ui \
     mainwindow.ui \
-    modifydialog.ui
+    modifydialog.ui \
+    printdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

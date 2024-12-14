@@ -135,3 +135,49 @@ void MainWindow::ModRecAction()
     disconnect(this, SIGNAL(sendId(int)), modifyDialog, SLOT(sendingId(int)));
 }
 
+
+void MainWindow::on_pushButton_clicked()
+{
+    printDialog = new PrintDialog();
+    printDialog->show();
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QString str;
+    str.append("<html><head></head><body><center>"
+    +QString("Отчёт"));
+    str.append("<table border=1><tr>");
+    str.append("<td>"+QString("ID")+"</td>");
+    str.append("<td>"+QString("Наименование")+"</td>");
+    str.append("<td>"+QString("Категория")+"</td></tr>");
+    QSqlQuery *query = new QSqlQuery();
+    query->exec("SELECT * FROM albums");
+    //query->next();
+    while(query->next())
+    {
+        str.append("<tr>");
+        str.append("<td>"
+        +QString(query->value(0).toString())+"</td>");
+        str.append("<td>"
+        +QString(query->value(1).toString())+"</td>");
+        str.append("<td>"
+        +QString(query->value(2).toString())
+        +"</td></tr>");
+    }
+    str.append("</table>");
+    str.append("</center></body></html>");
+
+    QPrinter printer;
+    printer.setOrientation(QPrinter::Portrait);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+
+    QString path = QFileDialog::getSaveFileName(NULL,"Сохранить", "Отчёт","PDF(*.pdf)");
+    if (path.isEmpty()) return;
+    printer.setOutputFileName(path);
+    QTextDocument doc;
+    doc.setHtml(str);
+    doc.print(&printer);
+}
