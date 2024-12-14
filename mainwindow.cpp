@@ -6,6 +6,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->tableView,
+            SIGNAL(customContextMenuRequested(QPoint)),
+            SLOT(CustomMenuReq(QPoint)));
+    isDataDisplayed = false;
 }
 
 MainWindow::~MainWindow()
@@ -23,6 +27,7 @@ void MainWindow::on_action_triggered()
 
 void MainWindow::on_updatePushButton_clicked()
 {
+    isDataDisplayed = true;
     qmodel = new QSqlTableModel();
     qmodel->setQuery("SELECT * FROM Albums");
     ui->tableView->setModel(qmodel);
@@ -90,3 +95,43 @@ void MainWindow::on_editPushButton_clicked()
     ui->genreInput->setText("");
     MainWindow::on_updatePushButton_clicked();
 }
+
+
+void MainWindow::CustomMenuReq(QPoint pos)
+{
+    if (isDataDisplayed) {
+        QModelIndex index = ui->tableView->indexAt(pos);
+        GlobId = ui->tableView->model()->data(ui->tableView->model()
+                                              ->index(index.row(), 0)).toInt();
+        QMenu *menu = new QMenu(this);
+        QAction *ModRec = new QAction("Изменить...", this);
+        QAction *DelRec = new QAction("Удалить", this);
+
+        connect(ModRec, SIGNAL(triggered()), this, SLOT(ModRecAction()));
+        connect(DelRec, SIGNAL(triggered()), this, SLOT(DelRecAction()));
+
+        menu->addAction(ModRec);
+        menu -> addAction(DelRec);
+
+        menu -> popup(ui->tableView->viewport()->mapToGlobal(pos));
+    }
+}
+
+void MainWindow::DelRecAction()
+{
+    QSqlQuery *query = new QSqlQuery();
+    query->prepare("DELETE FROM albums WHERE ID = :ID");
+    query -> bindValue(":ID", GlobId);
+    query -> exec();
+    MainWindow::on_updatePushButton_clicked();
+}
+
+void MainWindow::ModRecAction()
+{
+    modifyDialog = new ModifyDialog();
+    connect(this, SIGNAL(sendId(int)), modifyDialog, SLOT(sendingId(int)));
+    emit sendId(GlobId);
+    modifyDialog -> show();
+    disconnect(this, SIGNAL(sendId(int)), modifyDialog, SLOT(sendingId(int)));
+}
+

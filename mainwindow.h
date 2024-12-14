@@ -7,6 +7,8 @@
 #include "adddatadialog.h"
 #include "ui_adddatadialog.h"
 #include <QSqlQueryModel>
+#include "modifydialog.h"
+#include "ui_modifydialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -33,10 +35,23 @@ private slots:
 
     void on_editPushButton_clicked();
 
+    void CustomMenuReq(QPoint);
+
+    void DelRecAction();
+
+    void ModRecAction();
+
+signals:
+    void sendId(int);
+
 private:
     Ui::MainWindow *ui;
     ConnectionDialog *connectionDlg;
     AddDataDialog *addDlg;
     QSqlQueryModel *qmodel;
+    ModifyDialog *modifyDialog;
+
+    bool isDataDisplayed;
+    int GlobId;
 };
 #endif // MAINWINDOW_H
