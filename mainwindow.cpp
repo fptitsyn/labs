@@ -27,9 +27,15 @@ void MainWindow::on_action_triggered()
 
 void MainWindow::on_updatePushButton_clicked()
 {
+    QSqlQuery *queryCombo = new QSqlQuery();
+    queryCombo->exec("SELECT name FROM genres");
+    while (queryCombo->next())
+    {
+        ui->comboBox->addItem(queryCombo->value(0).toString());
+    }
     isDataDisplayed = true;
-    qmodel = new QSqlTableModel();
-    qmodel->setQuery("SELECT * FROM Albums");
+    qmodel = new QSqlQueryModel();
+    qmodel->setQuery("SELECT a.name, b.name FROM Albums a inner join genres b on a.catID = b.ID");
     ui->tableView->setModel(qmodel);
 }
 
@@ -47,14 +53,16 @@ void MainWindow::on_tableView_clicked(const QModelIndex &index)
     temp_ID = ui->tableView->model()->data(ui->tableView->
                                            model()->index(index.row(),0)).toInt();
     QSqlQuery *query = new QSqlQuery();
-    query->prepare("SELECT Name, Creator, Genre FROM albums WHERE ID =:ID");
+    query->prepare("SELECT Name, Creator, catID, ImagePath FROM albums WHERE ID =:ID");
     query->bindValue(":ID",temp_ID);
     ui->idInput->setText(QString::number(temp_ID));
     if (query->exec()) {
         query->next();
         ui->nameInput->setText(query->value(0).toString());
         ui->creatorInput->setText(query->value(1).toString());
-        ui->genreInput->setText(query->value(2).toString());
+        ui->comboBox->setCurrentIndex(query->value(2).toInt()-1);
+        img = query->value(3).toString();
+        ui->imageLabel->setPixmap(img);
     }
 }
 
@@ -72,7 +80,7 @@ void MainWindow::on_deletePushButton_clicked()
         ui->idInput->clear();
         ui->nameInput->clear();
         ui->creatorInput->clear();
-        ui->genreInput->clear();
+        ui->comboBox->clear();
 
         MainWindow::on_updatePushButton_clicked();
     }
@@ -83,16 +91,20 @@ void MainWindow::on_editPushButton_clicked()
 {
     QSqlQuery *query = new QSqlQuery();
     query->prepare("UPDATE albums SET name = :name, "
-    "creator = :creator, genre = :genre WHERE ID = :ID");
+    "creator = :creator, catID = :genre, ImagePath = :image WHERE ID = :ID");
     query->bindValue(":ID",ui->idInput->text());
     query->bindValue(":name",ui->nameInput->text());
     query->bindValue(":creator",ui->creatorInput->text());
-    query->bindValue(":genre",ui->genreInput->text());
+    query->bindValue(":genre",ui->comboBox->currentIndex()+1);
+    query->bindValue(":image", img);
     query->exec();
-    ui->idInput->setText("");
-    ui->nameInput->setText("");
-    ui->creatorInput->setText("");
-    ui->genreInput->setText("");
+
+//    ui->idInput->setText("");
+//    ui->nameInput->setText("");
+//    ui->creatorInput->setText("");
+//    ui->genreInput->setText("");
+//    ui->imageLabel->setText("");
+
     MainWindow::on_updatePushButton_clicked();
 }
 
@@ -174,10 +186,24 @@ void MainWindow::on_pushButton_2_clicked()
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setPaperSize(QPrinter::A4);
 
-    QString path = QFileDialog::getSaveFileName(NULL,"Сохранить", "Отчёт","PDF(*.pdf)");
+    QString path = QFileDialog::getSaveFileName(NULL, "Сохранить", "Отчёт", "PDF(*.pdf)");
     if (path.isEmpty()) return;
     printer.setOutputFileName(path);
     QTextDocument doc;
     doc.setHtml(str);
     doc.print(&printer);
 }
+
+void MainWindow::on_toolButton_clicked()
+{
+    img = QFileDialog::getOpenFileName(0, "Открыть файл", img, "*.jpg");
+    ui->imageLabel->setPixmap(img);
+}
+
+
+void MainWindow::on_action_2_triggered()
+{
+    printGraph = new PrintGraph();
+    printGraph->show();
+}
+

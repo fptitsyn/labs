@@ -11,6 +11,8 @@
 #include "ui_modifydialog.h"
 #include "printdialog.h"
 #include "ui_printdialog.h"
+#include "printgraph.h"
+#include "ui_printgraph.h"
 
 #include <QPrinter>
 #include <QTextDocument>
@@ -51,6 +53,10 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_toolButton_clicked();
+
+    void on_action_2_triggered();
+
 signals:
     void sendId(int);
 
@@ -61,6 +67,10 @@ private:
     QSqlQueryModel *qmodel;
     ModifyDialog *modifyDialog;
     PrintDialog *printDialog;
+
+    QString img;
+
+    PrintGraph *printGraph;
 
     bool isDataDisplayed;
     int GlobId;

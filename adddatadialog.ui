@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>508</width>
+    <height>581</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,8 @@
     <rect>
      <x>100</x>
      <y>10</y>
-     <width>211</width>
-     <height>211</height>
+     <width>302</width>
+     <height>472</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="inputForEditing">
@@ -65,28 +65,60 @@
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="genreInput">
+     <widget class="QComboBox" name="comboBox">
       <property name="minimumSize">
        <size>
-        <width>180</width>
+        <width>0</width>
         <height>40</height>
        </size>
       </property>
      </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="minimumSize">
+       <size>
+        <width>300</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QDateEdit" name="dateEdit"/>
     </item>
    </layout>
   </widget>
   <widget class="QPushButton" name="addPushButton">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>241</y>
+     <x>140</x>
+     <y>500</y>
      <width>211</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>Добавить</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>330</y>
+     <width>33</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
    </property>
   </widget>
  </widget>
